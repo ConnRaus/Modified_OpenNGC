@@ -1,3 +1,7 @@
+# Contributing to Modified_OpenNGC
+
+Pull requests and contribution are welcome, but please note that this is a fork mainly for my personal use with developing StarTeller. If you want to contribute to the original OpenNGC project, please refer to the instructions below.
+
 # Contributing to ONGC
 
 If you spot any error or want to contribute to OpenNGC, file a bug or open
@@ -19,4 +23,3 @@ values must be formatted as following:
 - RadVel: integer value without decimals and negative sign
 - Redshift: one leading zero and six decimals with negative sign ([-]0.000000)
 - Cstar magnitudes: one leading zero and two decimals with negative sign ([-]0.00 or 1.00)
-
