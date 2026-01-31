@@ -447,7 +447,7 @@ IC0430;Neb;05:38:35.97;-07:04:59.2;Ori;10.96;;;;14.40;;;;;;;;;;;;;;;;;;;;;;Type:
 IC0431;RfN;05:40:14.03;-01:27:46.1;Ori;8.00;5.00;;;;;;;;;;;;;;;;;;;;;LBN 944;;;;Type:1|RA:1|Dec:1|Const:99|MajAx:9|MinAx:9
 IC0432;RfN;05:40:55.98;-01:30:25.2;Ori;10.00;10.00;;;;;;;;;;;;;;;;;;;;;LBN 946;;;;Type:1|RA:1|Dec:1|Const:99|MajAx:9|MinAx:9
 IC0433;G;05:40:31.35;-11:39:56.1;Lep;1.42;1.12;138;;;10.93;10.19;9.85;;E;;;;7109;0.024000;;;;;;;;2MASX J05403134-1139561,MCG -02-15-008,PGC 017580;;;;Type:1|RA:1|Dec:1|Const:99|MajAx:3|MinAx:3|PosAng:3|J-Mag:2|H-Mag:2|K-Mag:2|Hubble:3|RadVel:2|Redshift:2
-IC0434;HII;05:41:00.88;-02:27:13.6;Ori;90.00;30.00;;11.00;;;;;;;;;;11;0.000036;;;;;;;;LBN 953;Flame Nebula;The Horsehead Nebula is an absorption patch in this.;;Type:1|RA:1|Dec:1|Const:99|MajAx:9|MinAx:9|B-Mag:3|RadVel:2|Redshift:2
+IC0434;HII;05:41:00.88;-02:27:13.6;Ori;90.00;30.00;;11.00;;;;;;;;;;11;0.000036;;;;;;;;LBN 953;;The Horsehead Nebula is an absorption patch in this.;;Type:1|RA:1|Dec:1|Const:99|MajAx:9|MinAx:9|B-Mag:3|RadVel:2|Redshift:2
 IC0435;RfN;05:43:00.57;-02:18:45.4;Ori;3.98;3.02;;;;;;;;;;;;;;;;;;;;;BD -02 1350,HD 038087,HIP 026939;;;;Type:1|RA:1|Dec:1|Const:99|MajAx:3|MinAx:3
 IC0436;Other;05:53:40.08;+38:37:29.2;Aur;;;;;;;;;;;;;;;;;;;;;;;;;;NED lists this as of type G, but Corwin says it’s an asterism of at least six stars.;Type:4|RA:1|Dec:1|Const:99
 IC0437;G;05:51:37.40;-12:33:53.9;Lep;0.97;0.46;7;15.25;;11.28;10.50;10.11;23.39;Sa;;;;6840;0.023083;;;;;;;;2MASX J05513743-1233535,IRAS 05493-1234,LEDA 090030;;;;Type:1|RA:1|Dec:1|Const:99|MajAx:3|MinAx:3|PosAng:3|B-Mag:3|J-Mag:2|H-Mag:2|K-Mag:2|SurfBr:3|Hubble:3|RadVel:2|Redshift:2
@@ -7720,7 +7720,7 @@ NGC2020;EmN;05:33:12.59;-67:42:57.2;Dor;3.20;2.90;50;;;;;;;;;;;;;;;;;;;;;;In the
 NGC2021;OCl;05:33:30.67;-67:27:10.4;Dor;0.90;0.90;;;12.06;;;;;;;;;;;;;;;;;;ESO 056-150;;In the Large Magellanic Cloud.;;Type:1|RA:1|Dec:1|Const:99|MajAx:7|MinAx:7|V-Mag:2
 NGC2022;PN;05:42:06.21;+09:05:11.5;Ori;0.32;;;12.40;11.60;15.42;11.79;11.03;;;0.5312;-0.331;-1.536;14;0.000047;;15.89;;;;;HD 37882;IRAS 05393+0903,PN G196.6-10.9;;;;Type:1|RA:1|Dec:1|Const:99|MajAx:8|B-Mag:3|V-Mag:3|J-Mag:2|H-Mag:2|K-Mag:2|Pax:2|Pm-RA:2|Pm-Dec:2|RadVel:2|Redshift:2|Cstar B-Mag:8
 NGC2023;RfN;05:41:38.39;-02:15:32.5;Ori;10.00;8.00;;;;;;;;;;;;;;;;;;;;;BD -02 1345,HD 037903,HIP 026816,LBN 954;;;;Type:1|RA:1|Dec:1|Const:99|MajAx:9|MinAx:9
-NGC2024;Neb;05:41:42.57;-01:51:22.6;Ori;30.00;30.00;;;;;;;;;;;;9;0.000029;;;;;;;;;;;;Type:1|RA:1|Dec:1|Const:99|MajAx:3|MinAx:3|RadVel:2|Redshift:2
+NGC2024;Neb;05:41:42.57;-01:51:22.6;Ori;30.00;30.00;;;;;;;;;;;;9;0.000029;;;;;;;;;Flame Nebula;;;Type:1|RA:1|Dec:1|Const:99|MajAx:3|MinAx:3|RadVel:2|Redshift:2
 NGC2025;OCl;05:32:33.64;-71:42:55.8;Men;1.90;1.90;;11.18;10.94;;;;;;;;;;;;;;;;;;ESO 056-149;;In the Large Magellanic Cloud.;;Type:1|RA:1|Dec:1|Const:99|MajAx:7|MinAx:7|B-Mag:2|V-Mag:2
 NGC2026;OCl;05:43:10.15;+20:08:20.0;Tau;4.20;;;;;;;;;;;-2.060;-5.120;;;;;;;;;;MWSC 0655;;;;Type:1|RA:1|Dec:1|Const:99|MajAx:5|Pm-RA:2|Pm-Dec:2
 NGC2027;OCl;05:34:59.71;-66:54:58.7;Dor;4.60;2.80;100;10.97;10.97;;;;;;;;;;;;;;;;;;ESO 086-013;;In the Large Magellanic Cloud.;;Type:1|RA:1|Dec:1|Const:99|MajAx:7|MinAx:7|PosAng:7|B-Mag:2|V-Mag:2
