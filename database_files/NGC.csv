@@ -2221,7 +2221,7 @@ IC2114;Dup;04:54:25.97;-69:11:02.8;Dor;;;;;;;;;;;;;;;;;;;;1748;;;;;;;Type:1|RA:1
 IC2115;*;04:57:08.72;-66:23:24.7;Dor;;;;11.39;11.27;11.10;11.08;10.97;;;;;;;;;;;;;;;2MASS J04570882-6623251,HD 268726,TYC 8889-603-1,UCAC2 2670877;;The IC identification is uncertain.;;Type:1|RA:1|Dec:1|Const:99|B-Mag:2|V-Mag:2|J-Mag:2|H-Mag:2|K-Mag:2
 IC2116;HII;04:57:16.26;-66:23:20.5;Dor;0.60;0.60;;13.88;14.21;12.11;11.83;11.07;;;;;;;;;;;;;;;2MASX J04571624-6623202,IRAS 04571-6627,UCAC4 119-004935;;"HII region in the LMC; nearly stellar on the DSS.";;Type:1|RA:1|Dec:1|Const:99|MajAx:7|MinAx:7|B-Mag:2|V-Mag:2|J-Mag:2|H-Mag:2|K-Mag:2
 IC2117;Cl+N;04:57:15.21;-68:26:29.3;Dor;1.00;0.90;110;;;;;;;;;;;;;;;;;;;;2MASX J04571529-6826292;;"HII region in the LMC; part of the NGC 1770 association.";;Type:1|RA:1|Dec:1|Const:99|MajAx:7|MinAx:7|PosAng:7
-IC2118;Dup;05:04:55.44;-07:15:56.3;Eri;;;;;;;;;;;;;;;;;;;;1909;;;;;;;Type:1|RA:1|Dec:1|Const:99
+IC2118;Dup;05:04:55.44;-07:15:56.3;Eri;;;;;;;;;;;;;;;;;;;;1909;;;;Witch Head Nebula;;;Type:1|RA:1|Dec:1|Const:99
 IC2119;G;05:06:50.95;-20:20:42.7;Lep;1.20;0.63;54;14.69;;11.58;10.90;10.62;23.34;SBb;;;;9329;0.031620;;;;;;;;2MASX J05065095-2020428,ESO 553-005,ESO-LV 553-0050,MCG -03-13-073,PGC 016759;;10 degree error in IC declination.;;Type:1|RA:1|Dec:1|Const:99|MajAx:3|MinAx:3|PosAng:3|B-Mag:3|J-Mag:2|H-Mag:2|K-Mag:2|SurfBr:3|Hubble:3|RadVel:2|Redshift:2
 IC2120;Other;05:19:10.30;+38:11:06.0;Aur;;;;;;;;;;;;;;;;;;;;;;;;;This is a measurement of Comet 113P/Spitaler 1890 mistaken for a nebula.;;Type:1|RA:1|Dec:1|Const:99
 IC2121;Dup;05:19:44.86;-25:03:51.6;Lep;;;;;;;;;;;;;;;;;;;;;0408;;;;;;Type:1|RA:1|Dec:1|Const:99
