@@ -58,4 +58,3 @@ jobs:
 
           # Upload assets (overwrite on every update).
           gh release upload "${TAG}" dist/catalog.sqlite dist/catalog.meta.json --clobber
-
