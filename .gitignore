@@ -1,3 +1,6 @@
 .DS_Store
-tools/
+dist/
+# Local tooling under tools/ — except the SQLite builder used by GitHub Actions
+tools/*
+!tools/build_catalog_sqlite.py
 .venv

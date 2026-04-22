@@ -1,0 +1,61 @@
+name: Build catalog.sqlite and publish catalog-latest
+
+on:
+  push:
+    branches: ["master"]
+    paths:
+      - "database_files/NGC.csv"
+      - "database_files/addendum.csv"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: catalog-latest-release
+  cancel-in-progress: true
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Build SQLite catalog
+        run: python tools/build_catalog_sqlite.py
+
+      - name: Publish/update catalog-latest release asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          TAG="catalog-latest"
+          TITLE="Catalog (latest)"
+          SHORT_SHA="$(echo "${GITHUB_SHA}" | cut -c1-12)"
+          NOTES="$(cat <<EOF
+          Automated catalog build from commit \`${SHORT_SHA}\`.
+
+          - source_sha: \`${GITHUB_SHA}\`
+          - built_at: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+          - assets:
+            - catalog.sqlite
+            - catalog.meta.json
+          EOF
+          )"
+
+          # Create release if missing, otherwise update notes. Keep a single rolling "latest" release.
+          if gh release view "${TAG}" >/dev/null 2>&1; then
+            gh release edit "${TAG}" --title "${TITLE}" --notes "${NOTES}" --latest
+          else
+            gh release create "${TAG}" --title "${TITLE}" --notes "${NOTES}" --latest
+          fi
+
+          # Upload assets (overwrite on every update).
+          gh release upload "${TAG}" dist/catalog.sqlite dist/catalog.meta.json --clobber
+
