@@ -201,7 +201,7 @@ def iter_catalog_rows(csv_path: Path, enforce_ngc_ic: bool) -> Iterable[CatalogR
                 Common_Name=common_raw,
                 Messier=format_messier(r.get("M") or ""),
                 Constellation=(r.get("Const") or "").strip(),
-                V_Mag=v_mag if v_mag == v_mag else float("nan"),
+                V_Mag=v_mag,
                 SurfBr=fnum(r.get("SurfBr") or ""),
                 Major_Axis_arcmin=fnum(r.get("MajAx") or ""),
                 Minor_Axis_arcmin=fnum(r.get("MinAx") or ""),
