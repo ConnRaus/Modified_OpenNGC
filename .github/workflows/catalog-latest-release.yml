@@ -6,6 +6,7 @@ on:
     paths:
       - "database_files/NGC.csv"
       - "database_files/addendum.csv"
+  workflow_dispatch:
 
 permissions:
   contents: write
