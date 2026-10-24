@@ -1,18 +1,21 @@
-name: Build catalog.sqlite and publish catalog-latest
+name: Build catalog.sqlite (schema v2) and publish catalog-v2
 
+# catalog-latest (schema v1, app 1.0.5 and earlier) is frozen: nothing publishes to it any more.
 on:
   push:
     branches: ["master"]
     paths:
       - "database_files/NGC.csv"
       - "database_files/addendum.csv"
+      - "database_files/links.csv"
+      - "tools/build_catalog.py"
   workflow_dispatch:
 
 permissions:
   contents: write
 
 concurrency:
-  group: catalog-latest-release
+  group: catalog-v2-release
   cancel-in-progress: true
 
 jobs:
@@ -28,34 +31,35 @@ jobs:
           python-version: "3.11"
 
       - name: Build SQLite catalog
-        run: python tools/build_catalog_sqlite.py
+        run: python tools/build_catalog.py
 
-      - name: Publish/update catalog-latest release asset
+      - name: Publish/update catalog-v2 release asset
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
 
-          TAG="catalog-latest"
-          TITLE="Catalog (latest)"
+          TAG="catalog-v2"
+          TITLE="Catalog v2"
           SHORT_SHA="$(echo "${GITHUB_SHA}" | cut -c1-12)"
-          NOTES="$(cat <<EOF
-          Automated catalog build from commit \`${SHORT_SHA}\`.
+          NOTES="$(cat <<NOTES_EOF
+          Automated catalog build (schema v2, app 1.0.6 and later) from commit \`${SHORT_SHA}\`.
 
           - source_sha: \`${GITHUB_SHA}\`
           - built_at: $(date -u +"%Y-%m-%dT%H:%M:%SZ")
           - assets:
             - catalog.sqlite
             - catalog.meta.json
-          EOF
+            - catalog.report.txt
+          NOTES_EOF
           )"
 
-          # Create release if missing, otherwise update notes. Keep a single rolling "latest" release.
+          # Create release if missing, otherwise update notes. Keep a single rolling release.
           if gh release view "${TAG}" >/dev/null 2>&1; then
-            gh release edit "${TAG}" --title "${TITLE}" --notes "${NOTES}" --latest
+            gh release edit "${TAG}" --title "${TITLE}" --notes "${NOTES}"
           else
-            gh release create "${TAG}" --title "${TITLE}" --notes "${NOTES}" --latest
+            gh release create "${TAG}" --title "${TITLE}" --notes "${NOTES}"
           fi
 
           # Upload assets (overwrite on every update).
-          gh release upload "${TAG}" dist/catalog.sqlite dist/catalog.meta.json --clobber
+          gh release upload "${TAG}" dist/catalog.sqlite dist/catalog.meta.json dist/catalog.report.txt --clobber
