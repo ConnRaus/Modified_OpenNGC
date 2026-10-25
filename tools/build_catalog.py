@@ -55,7 +55,7 @@ CATALOGS: list[Catalog] = [
     Catalog("Sh2", "Sharpless", "Sh2-", r"(?:SH\s*2\s*-|Sharpless\s+)\s*(\d+)"),
     Catalog("B", "Barnard", "B ", r"B\s*(\d+)"),
     Catalog("RCW", "Rodgers, Campbell & Whiteoak", "RCW ", r"RCW\s*(\d+)"),
-    Catalog("Gum", "Gum", "Gum ", r"Gum\s*(\d+)"),
+    Catalog("Gum", "Gum", "Gum ", r"Gum\s*(\d+)([A-Z]?)", "{0}{1}"),
     Catalog("LBN", "Lynds Bright Nebulae", "LBN ", r"LBN\s*(\d+)"),
     Catalog("LDN", "Lynds Dark Nebulae", "LDN ", r"LDN\s*(\d+)"),
     Catalog("Mel", "Melotte", "Mel ", r"Mel\s*(\d+)"),
