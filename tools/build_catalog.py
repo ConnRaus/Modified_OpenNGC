@@ -55,9 +55,10 @@ CATALOGS: list[Catalog] = [
     Catalog("Sh2", "Sharpless", "Sh2-", r"(?:SH\s*2\s*-|Sharpless\s+)\s*(\d+)"),
     Catalog("B", "Barnard", "B ", r"B\s*(\d+)"),
     Catalog("RCW", "Rodgers, Campbell & Whiteoak", "RCW ", r"RCW\s*(\d+)"),
-    Catalog("Gum", "Gum", "Gum ", r"Gum\s*(\d+)([A-Z]?)", "{0}{1}"),
+    Catalog("Gum", "Gum", "Gum ", r"Gum\s*(\d+)"),
     Catalog("LBN", "Lynds Bright Nebulae", "LBN ", r"LBN\s*(\d+)"),
     Catalog("LDN", "Lynds Dark Nebulae", "LDN ", r"LDN\s*(\d+)"),
+    Catalog("SNR", "Green Galactic SNRs", "SNR G", r"SNR\s*G\s*(\d+\.\d)([+-])0*(\d+\.\d)", "{0}{1}{2}"),
     Catalog("Mel", "Melotte", "Mel ", r"Mel\s*(\d+)"),
     Catalog("Cr", "Collinder", "Cr ", r"(?:Cl|Cr|Collinder)\s*(\d+)"),
     Catalog("H", "Harvard", "H ", r"H\s*(\d+)"),
@@ -71,7 +72,8 @@ CATALOGS: list[Catalog] = [
     Catalog("MWSC", "Milky Way Star Clusters", "MWSC ", r"MWSC\s*(\d+)"),
     Catalog("HIP", "Hipparcos", "HIP ", r"HIP\s*(\d+)"),
 ]
-_COMPILED = [(c, re.compile(rf"^{c.pattern}$", re.IGNORECASE)) for c in CATALOGS]
+# Every catalog also takes one optional trailing letter for lettered parts ("Gum 34a", "RCW 38A")
+_COMPILED = [(c, re.compile(rf"^{c.pattern}([A-Z]?)$", re.IGNORECASE)) for c in CATALOGS]
 PRIORITY = {c.id: i for i, c in enumerate(CATALOGS)}
 
 TYPES: dict[str, str] = {
@@ -119,8 +121,9 @@ def parse_designation(raw: str) -> tuple[Catalog, str] | None:
     for cat, rx in _COMPILED:
         m = rx.match(s)
         if m:
-            parts = [str(int(g)) if g.isdigit() else g.upper() for g in m.groups()]
-            return cat, cat.code.format(*parts)
+            *groups, letter = m.groups()
+            parts = [str(int(g)) if g.isdigit() else g.upper() for g in groups]
+            return cat, cat.code.format(*parts) + letter.upper()
     return None
 
 
