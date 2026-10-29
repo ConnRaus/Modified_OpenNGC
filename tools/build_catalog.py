@@ -64,6 +64,7 @@ CATALOGS: list[Catalog] = [
     Catalog("H", "Harvard", "H ", r"H\s*(\d+)"),
     Catalog("W", "Westerhout", "W ", r"(?:Westerhout\s*|W\s*)(\d+)"),
     Catalog("Arp", "Arp", "Arp ", r"Arp\s*(\d+)"),
+    Catalog("VV", "Vorontsov-Velyaminov", "VV ", r"VV\s*(\d+)"),
     Catalog("HCG", "Hickson Compact Group", "HCG ", r"HCG\s*(\d+)"),
     Catalog("UGC", "Uppsala General Catalogue", "UGC ", r"UGC\s*(\d+)"),
     Catalog("UGCA", "UGC Appendix", "UGCA ", r"UGCA\s*(\d+)"),
@@ -130,7 +131,10 @@ def parse_designation(raw: str) -> tuple[Catalog, str] | None:
 def key_of(raw: str) -> str | None:
     """Search key of an id in its canonical display form, so "Cl399" and "Cr 399" agree."""
     d = parse_designation(raw)
-    return search_key(d[0].prefix + d[1]) if d else None
+    if d:
+        return search_key(d[0].prefix + d[1])
+    # NC001 etc: objects with no catalog number. Keyed for links, but not a designation, so the app shows only the name
+    return search_key(raw) if re.fullmatch(r"NC\d+", (raw or "").strip()) else None
 
 
 def search_key(text: str) -> str:
